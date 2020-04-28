@@ -1,0 +1,85 @@
+#container0 {
+    width: 650px;
+    height: 150px;
+    margin: auto;
+}
+#container {
+    width: 650px;
+    height: 700px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+
+}
+#back{
+    width: 1000px;
+    height: 100px; 
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+h2 {
+    text-align: center;
+    font-size: 20px;
+    width: 100px;
+    background-color: #FFAB7A;  
+}
+.c {
+    
+    width: 150px;
+    height: 150px;
+    float: left;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 100px;
+    background-image: url("99.png");
+    background-color:black;
+    background-size: 150px 150px;
+}
+#b0, #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b10, #b11, #b12, #b13,  #b14, #b15{
+    border-top: 5px solid #FF9A01;
+}
+#b0, #b4, #b8, #b12 ,#b1, #b5, #b9, #b13, #b2, #b6, #b10, #b14, #b3, #b7, #b11, #b15 {
+    border-left: 5px solid #FF9A01;
+}
+#b3, #b7, #b11, #b15 {
+    border-right: 5px solid #FF9A01;
+}
+#b12, #b13, #b14, #b15 {
+    border-bottom: 5px solid #FF9A01;
+}
+.colorUno{
+    background-image: url("1.png");
+    background-size: 150px 150px;
+}
+.colorDos{
+    background-image: url("2.png"); 
+    background-size: 150px 150px;
+}.colorTres{
+    background-image: url("3.png"); 
+    background-size: 150px 150px;
+}.colorCuatro{
+    background-image: url("4.png"); 
+    background-size: 150px 150px;
+}.colorCinco{
+    background-image: url("5.png"); 
+    background-size: 150px 150px;
+}.colorSeis{
+    background-image: url("6.png"); 
+    background-size: 150px 150px;
+}.colorSiete{
+    background-image: url("7.png"); 
+    background-size: 150px 150px;
+}
+.colorOcho{
+    background-image: url("8.png"); 
+    background-size: 150px 150px;
+}
+.blanco{
+    background-image: url("99.png");
+    background-size: 150px 150px;
+}
