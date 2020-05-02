@@ -1,4 +1,3 @@
-
 const grid = () => Array.from(document.getElementsByClassName("c"));
 var pairs = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 var pairsNot = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -34,9 +33,6 @@ function WinFunction() {
 
 const clickFn = function ($event) {
   if(iaux!=2){
-
-
-  
     putPairColors(event.target);
     i++;
     if (i == 1) {
@@ -68,15 +64,6 @@ const clickFn = function ($event) {
   }
 
 };
-function wait(ms)
-{
-var d = new Date();
-var d2 = null;
-do { d2 = new Date(); 
-}
-while(d2-d < ms);
-
-}
 function stopClock() {
   clearTimeout(timeout);
   timeout = 0;
