@@ -1,3 +1,4 @@
+
 const grid = () => Array.from(document.getElementsByClassName("c"));
 var pairs = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 var pairsNot = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -7,6 +8,8 @@ let firstEvent = "";
 let total = 0;
 var inicialDate = 0;
 var timeout = 0;
+let ini=0;
+let iaux=0;
 
 const bToNum = function (elem) {
   return Number.parseInt(elem.id.replace("b", ""));
@@ -28,35 +31,52 @@ function WinFunction() {
   } else {
   }
 }
-const clickFn = function ($event) {
-  putPairColors(event.target);
 
-  i++;
-  if (i == 1) {
-    firstEvent = event.target;
-  }
-  if (i == 2) {
-    if (
-      grid()[bToNum(event.target)].value !== grid()[bToNum(firstEvent)].value
-    ) {
-      i = 0;
-      initialColor(event.target);
-      initialColor(firstEvent);
-    } else if (
-      grid()[bToNum(event.target)].value === grid()[bToNum(firstEvent)].value
-    ) {
-      i = 0;
-      disableListeners(event.target);
-      disableListeners(firstEvent);
-      total++;
+const clickFn = function ($event) {
+  if(iaux!=2){
+
+
+  
+    putPairColors(event.target);
+    i++;
+    if (i == 1) {
+      firstEvent = event.target;
+    }
+    if (i == 2) {
+      if (
+        grid()[bToNum(event.target)].value !== grid()[bToNum(firstEvent)].value
+      ) {
+        iaux=2;
+        init();
+        i = 0;
+        initialColor(event.target);
+        initialColor(firstEvent);
+           
+      } else if (
+        grid()[bToNum(event.target)].value === grid()[bToNum(firstEvent)].value
+      ) {
+        i = 0;
+        disableListeners(event.target);
+        disableListeners(firstEvent);
+        total++;
+      }
+    } 
+    if (total === 8) {
+      stopClock();
+      setTimeout("WinFunction()", 1000);
     }
   }
-  if (total === 8) {
-    stopClock();
-    setTimeout("WinFunction()", 1000);
-  }
-}
 
+};
+function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); 
+}
+while(d2-d < ms);
+
+}
 function stopClock() {
   clearTimeout(timeout);
   timeout = 0;
@@ -75,7 +95,7 @@ function starting() {
     ":" +
     putCero(diff.getUTCSeconds());
   document.getElementById("time").innerHTML = result;
-  resulTime = result;
+  ini =  putCero(diff.getUTCSeconds())
   timeout = setTimeout("starting()", 1000);
 }
 
@@ -93,7 +113,6 @@ const putPairNumbers = function () {
     while (pairsNot[elem] !== 0) {
       elem = Math.floor(Math.random() * 16 + 0);
     }
-    console.log(elem);
     grid()[elem].value = pairs[0];
     pairs.shift();
     pairsNot[elem] = 1;
@@ -156,12 +175,18 @@ const putPairColors = function (elem) {
 const initialColor = function (elem) {
   setTimeout(() => {
     grid()[bToNum(elem)].classList.add("blanco");
-  }, 1000);
+  }, 1500);
+};
+const init = function () {
+  setTimeout(() => {
+  iaux=0;
+  }, 1500);
 };
 const enableListeners = () =>
   grid().forEach((elem) => elem.addEventListener("click", clickFn));
 const disableListeners = (elem) =>
   grid()[bToNum(elem)].removeEventListener("click", clickFn);
+
 putPairNumbers();
 enableListeners();
 starClock();
